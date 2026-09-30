@@ -1,0 +1,37 @@
+seed: 2026
+random_limit: 100000
+
+queues:
+  - id: 1
+    servers: 1
+    capacity: infinite
+    arrival: [2.0, 4.0]
+    first_arrival: 2.0
+    service: [1.0, 2.0]
+    routes:
+      - destination: 2
+        probability: 0.2
+      - destination: 3
+        probability: 0.8
+
+  - id: 2
+    servers: 2
+    capacity: 5
+    service: [4.0, 6.0]
+    routes:
+      - destination: 1
+        probability: 0.3
+      - destination: 3
+        probability: 0.5
+      - destination: null
+        probability: 0.2
+
+  - id: 3
+    servers: 2
+    capacity: 10
+    service: [5.0, 15.0]
+    routes:
+      - destination: 2
+        probability: 0.7
+      - destination: null
+        probability: 0.3
